@@ -220,6 +220,24 @@ This is where the section for the articles begins, and provides the formatting f
     flex-grow: 1;
 }
 
+@keyframes gradientAnimation {
+    0% {
+        background-position: 100% 0%;
+    }
+    100% {
+        background-position: 0% 100%;
+    }
+}
+
+#name {
+    background: linear-gradient(45deg, #e60073, #e68a00, #e60073);
+    background-size: 200% 200%;
+    animation: gradientAnimation 3s infinite;
+    color: white;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
 
 .header-photo {
     width: 14.4375rem;
