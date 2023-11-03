@@ -1,0 +1,163 @@
+/* 
+  The below connects to the main.js to shrink the hr overlay animation
+  The overlay animation works with a div filling the screen
+*/
+
+
+/*
+  The below keyframe uses things found in the main js file to figure out
+  the specific dimensions of the hr to emulate a cleaner animation
+*/
+  @keyframes shrinkOverlayY {
+    100% {
+        height: var(--hr-height);
+        top: var(--hr-top);
+    }
+  }
+
+/*
+  This is purposefully split into two parts, just to make it mentally easier and smoother. The naming is slightly off as it should be Final
+  but X was easier to mentally understand at the time as that is what its acting upon in the animation 
+*/
+  @keyframes shrinkOverlayX{
+    100% {
+      height: var(--hr-height);
+      top: var(--hr-top);
+      width: var(--hr-width);
+      left: var(--hr-left);
+
+    }
+  }
+  
+  .overlay-shrink {
+    animation: shrinkOverlayY 1s 2s forwards, shrinkOverlayX 2s 2s forwards;
+  }
+  
+
+
+/* 
+  This works on the animation for the words particularly, on loading.
+*/
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+     
+
+  
+  .link-item {
+    opacity: 0;
+    transition: transform 0.3s ease-out;
+  }
+  
+  .link-item.show {
+    animation: slideDown 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) 4s forwards;
+  }
+
+
+/* 
+  Another section that focuses on the animation, particularly
+  creating a new one called Slide Up
+*/
+
+
+  .namez {
+    opacity:0;
+  }
+
+  .namez.show {
+    animation: slideUp 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) 3s forwards;
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+
+
+/*
+  This is the area where I'm just working on the base animation for the loading page of the website, trying to add a little bit of colour
+*/
+
+.loader {
+  display: none;
+  border-radius: 50%;
+}
+
+.loader-bounce {
+    display: block;
+    animation: bounce 0.5s;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+  20%, 80% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+  }
+  40% {
+    transform: translateY(-50px);
+    animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+  }
+  60% {
+    transform: translateY(25px);
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+}
+
+
+
+/*
+This is for the self-image animation, I just do a simple translation
+*/
+
+.translateOnHover {
+  transition: transform 0.3s; /* This ensures a smooth transition */
+  display: inline-block; /* This ensures the transform applies correctly */
+}
+
+/* If the image is positioned absolute, make sure it's on top of the background square */
+.self-image {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.5s;
+}
+
+.self-image.translateOnHover {
+  transition: transform 1s; /* Smooth transition */
+  cursor: pointer; /* Indicate that the element is draggable */
+}
+
+/* Just in case, ensure that your background square is beneath other content */
+.bg-rectangle {
+  z-index: 0;
+}
+
+
+
+.translateText {
+  transition: transform 0.3s; /* This ensures a smooth transition */
+  display: inline-block; /* This ensures the transform applies correctly */
+  min-width: 200px;
+}
+
+.translateText:hover {
+  transform: translate(10px, 10px); /* This moves the object 10px to the right and 10px downwards */
+}
