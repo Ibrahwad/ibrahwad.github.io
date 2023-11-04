@@ -532,22 +532,18 @@ th, td {
 }
 
 #progress-container {
+    /* The background radial gradient at the bottom is for visibility above text due to the colors */
     position: fixed;
     top: 20px;
     right: 20px;
     z-index: 9999;
+    background: radial-gradient(circle, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 70%);
+    overflow: hidden;
 }
 
 .progress-ring {
     transform: rotate(-90deg); /* This will start our stroke at the top of the circle */
 }
-
-.gradient {
-    /* The gradient is now larger and extends beyond the boundaries of the element. */
-    background: radial-gradient(circle, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 70%);
-    /* Make sure the content inside does not overflow and show the square edges */
-    overflow: hidden;
-  }
 
 .article-image {
     width: 100%;
