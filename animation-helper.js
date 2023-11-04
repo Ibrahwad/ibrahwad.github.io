@@ -3,8 +3,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const landingAnimationElement = document.querySelector('.landing-animation');
   
-  // If mobile on initial load, hide the animation and exit.
+  // Function to disable scrolling
+  function disableScrolling() {
+    document.body.style.overflow = 'hidden';
+  }
+
+  // Function to enable scrolling
+  function enableScrolling() {
+    document.body.style.overflow = '';
+  }
+
+  // Conditionally disable scrolling if on mobile
   if (window.innerWidth <= 768) { // Assuming 768px is your mobile breakpoint
+    disableScrolling();
+  } else {
     landingAnimationElement.style.display = 'none';
     return;
   }
@@ -13,24 +25,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
   setTimeout(() => {
     const { width, height, top, left } = animationTagElement.getBoundingClientRect();
-    
-    // If inside a sticky container, consider the scroll position.
     const adjustedTop = window.scrollY + top;
 
-    // Set the CSS variables
     document.documentElement.style.setProperty('--hr-width', `${width}px`);
     document.documentElement.style.setProperty('--hr-height', `${height}px`);
     document.documentElement.style.setProperty('--hr-top', `${adjustedTop}px`);
     document.documentElement.style.setProperty('--hr-left', `${left}px`);
 
-    // Add a class to start the animation
     landingAnimationElement.classList.add('animation-shrink');
 
     landingAnimationElement.addEventListener('animationend', () => {
       landingAnimationElement.style.display = 'none';
+      enableScrolling(); // Re-enable scrolling after the animation ends
     });
   }, 100);
 });
+
+
 // Ordering for the Card Animation
 
 document.addEventListener("DOMContentLoaded", () => {

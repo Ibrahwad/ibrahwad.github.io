@@ -830,6 +830,12 @@ th, td {
         transform: scale(1.3); /* This enlarges the item slightly when hovered */
         z-index: 1; /* This ensures the hovered item is above the rest */
       }
+
+    .card-image-container {
+        height:100%;
+       
+    }
+
 }
 
 
@@ -852,6 +858,7 @@ th, td {
 
     .card-description {
         max-width:fit-content;
+        height:4rem;
     }
 
     .carousel {
