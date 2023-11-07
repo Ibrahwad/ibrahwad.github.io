@@ -915,3 +915,13 @@ th, td {
   .hidden-scrollbar {
     -ms-overflow-style: none;
   }
+
+
+
+  .about-copy {
+    color: #FFF;
+    font-family: Inter;
+    font-size: var(--header-font-size);
+    font-weight: var(--font-weight-bold);
+    line-height: normal;
+}
