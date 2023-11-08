@@ -1,0 +1,39 @@
+/* This styles the HTML body element */
+body {
+    height: 100%;
+    display: flex;
+    margin: 0; /* Resets the default margin */
+    padding: 0; /* Resets the default padding */
+    /* Add any additional styles you want for your body element here */
+    background-color: black;
+}
+
+/* This styles elements with the class 'gradient-background' */
+
+/* Assuming 'test' is the direct child of 'body' and should fill it completely */
+.test {
+    width: 100%; /* Take the full width of the body */
+    min-height: 100vh; /* Take the full minimum height of the viewport */
+    border: 4px solid green;
+    box-sizing: border-box;
+}
+
+
+.shape-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden; /* Prevents shapes from overflowing outside of the viewport */
+    filter: blur(150px); /* Apply the blur effect to all children */
+  }
+  
+  /* General styles for shapes */
+  .shape {
+    position: absolute;
+    width: 150px; /* Width of the shape */
+    height: 150px; /* Height of the shape */
+    border-radius:50%;
+    background-color: #D63C3C;
+    border: 15px solid rgb(131, 125, 214);
+    transition: top 2.5s, left 2.5s; /* Adjust duration as needed */
+  }
