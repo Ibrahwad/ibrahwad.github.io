@@ -925,3 +925,55 @@ th, td {
     font-weight: var(--font-weight-bold);
     line-height: normal;
 }
+
+
+
+
+/* Lacking colour, working on livening up the background of the website */
+
+
+.testing-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        min-height: 100%;
+
+        box-sizing: border-box;
+        z-index: -1; /* Ensures it stays behind other content */
+    
+}
+
+
+.shape-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden; /* Prevents shapes from overflowing outside of the viewport */
+    filter: blur(150px); /* Apply the blur effect to all children */
+  }
+  
+  /* General styles for shapes */
+  .shape {
+    position: absolute;
+    width: 150px; /* Width of the shape */
+    height: 150px; /* Height of the shape */
+    border-radius:50%;
+    background-color: #D63C3C;
+    border: 15px solid rgb(255, 255, 255);
+    transition: top 5s, left 5s;
+  }
+
+  .shape-container > :nth-child(2) {
+    background-color: #583cd6;
+  }
+
+
+  .shape-container > :nth-child(3) {
+    background-color: #D6D03C;
+  }
+
+  .shape-container > :nth-child(4) {
+    background-color: #3cd656;
+  }
+
